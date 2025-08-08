@@ -18,7 +18,7 @@ resource "azurerm_linux_web_app" "genie_app" {
   resource_group_name = azurerm_resource_group.genie_rg.name
   service_plan_id     = azurerm_service_plan.genie_plan.id
   site_config {
-    app_command_line = "gunicorn --bind 0.0.0.0 --worker-class aiohttp.worker.GunicornWebWorker --timeout 1200 --chdir src/chatx app:app"
+    app_command_line = "gunicorn --bind 0.0.0.0 --worker-class aiohttp.worker.GunicornWebWorker --timeout 1200 src.chatx.app:app"
     application_stack {
       python_version = "3.12"
     }

@@ -5,7 +5,7 @@ from databricks.sdk.service.sql import StatementResponse, ColumnInfoTypeName
 from databricks.sdk.service.dashboards import GenieResultMetadata
 from botbuilder.schema import Activity, ActivityTypes
 
-from adaptive_card import AdaptiveCardFactory
+from chatx.adaptive_card import AdaptiveCardFactory
 
 # Log
 logger = logging.getLogger(__name__)

@@ -236,3 +236,4 @@ testing/
 
 # VSCode settings
 .vscode/
+appManifest/manifest.json

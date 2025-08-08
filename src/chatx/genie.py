@@ -1,9 +1,9 @@
 import asyncio
 import logging
 
-from databricks.sdk import GenieAPI, WorkspaceClient
+from databricks.sdk import GenieAPI, WorkspaceClient, errors
 
-from const import DATABRICKS_HOST, DATABRICKS_CLIENT_ID, DATABRICKS_CLIENT_SECRET
+from const import DATABRICKS_HOST, DATABRICKS_CLIENT_ID, DATABRICKS_CLIENT_SECRET, TOKEN_EXPIRED_MESSAGE
 from genie_result import GenieResult
 
 # Log
@@ -127,6 +127,12 @@ class GenieQuerier:
 
             return GenieResult(
                 message="No attachment found", conversation_id=conversation_id
+            )
+
+        except errors.platform.PermissionDenied as e:
+            return GenieResult(
+                message=TOKEN_EXPIRED_MESSAGE,
+                conversation_id=conversation_id,
             )
 
         except Exception as e:

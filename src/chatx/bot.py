@@ -13,6 +13,7 @@ from const import (
     WELCOME_MESSAGE,
     SPACES,
     OAUTH_CONNECTION_NAME,
+    TOKEN_EXPIRED_MESSAGE,
 )
 from genie import GenieQuerier
 from helpers.dialog_helper import DialogHelper
@@ -98,10 +99,6 @@ class MyBot(ActivityHandler):
                     turn_context, user_id
                 )
 
-        # Trigger login - in case token has timed out.
-        if self.auth_method == "oauth":
-            await self._trigger_login_dialog(turn_context)
-
         # Check if genie has been initialized
         if "logout" in question.lower():
             await turn_context.send_activity("Logging you out.")
@@ -148,6 +145,14 @@ class MyBot(ActivityHandler):
                 response_activity.id = (
                     wait_activity.id
                 )  # Use the same ID to update the waiting message
+
+                if (genie_result.message == TOKEN_EXPIRED_MESSAGE):
+                    await turn_context.update_activity(response_activity)
+                    await self._trigger_login_dialog(turn_context)
+                    return await self._initialize_genie_querier_with_token(
+                        turn_context, user_id
+                    )
+
                 return await turn_context.update_activity(response_activity)
                 # return await turn_context.send_activity(response_activity)
 

@@ -32,3 +32,5 @@ LIST_SPACES = ", ".join([f"@{space_name}" for space_name in SPACES.keys()])
 SPACE_NOT_FOUND = (
     f"Genie space not found. Please use {LIST_SPACES} to specify the space."
 )
+
+TOKEN_EXPIRED_MESSAGE = "Oops, your token seems to have expired, please complete login process again."

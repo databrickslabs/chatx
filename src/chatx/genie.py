@@ -3,8 +3,8 @@ import logging
 
 from databricks.sdk import GenieAPI, WorkspaceClient
 
-from chatx.const import DATABRICKS_HOST, DATABRICKS_CLIENT_ID, DATABRICKS_CLIENT_SECRET
-from chatx.genie_result import GenieResult
+from const import DATABRICKS_HOST, DATABRICKS_CLIENT_ID, DATABRICKS_CLIENT_SECRET
+from genie_result import GenieResult
 
 # Log
 logger = logging.getLogger(__name__)

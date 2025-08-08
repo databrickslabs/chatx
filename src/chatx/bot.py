@@ -5,8 +5,8 @@ from botbuilder.core import ActivityHandler, TurnContext, ConversationState, Use
 from botbuilder.dialogs import Dialog
 from botbuilder.schema import ChannelAccount, TokenResponse
 
-from chatx.adaptive_card import AdaptiveCardFactory
-from chatx.const import (
+from adaptive_card import AdaptiveCardFactory
+from const import (
     SPACE_NOT_FOUND,
     SWITCHING_MESSAGE,
     REVERSE_SPACES,
@@ -14,8 +14,8 @@ from chatx.const import (
     SPACES,
     OAUTH_CONNECTION_NAME,
 )
-from chatx.genie import GenieQuerier
-from chatx.helpers.dialog_helper import DialogHelper
+from genie import GenieQuerier
+from helpers.dialog_helper import DialogHelper
 
 # Log
 logger = logging.getLogger(__name__)

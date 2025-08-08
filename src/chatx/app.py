@@ -25,10 +25,10 @@ from botbuilder.core import (
 )
 from botbuilder.schema import Activity
 
-from chatx.bot import MyBot
-from chatx.const import APP_ID, APP_PASSWORD, OAUTH_CONNECTION_NAME, AUTH_METHOD
+from bot import MyBot
+from const import APP_ID, APP_PASSWORD, OAUTH_CONNECTION_NAME, AUTH_METHOD
 
-from chatx.login_dialog import LoginDialog
+from login_dialog import LoginDialog
 
 # Log
 logger = logging.getLogger(__name__)
